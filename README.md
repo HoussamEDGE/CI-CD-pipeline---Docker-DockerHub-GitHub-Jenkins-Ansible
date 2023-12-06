@@ -10,7 +10,8 @@ while creating the instances assign to them a key pair that you have created , i
 ![Screenshot 2023-12-06 111239](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/77722d41-6394-4dd1-b974-38904aee6e7c)
 
 to connect using ssh with EC2 instance : 
- ssh -i ubuntu-key.pem ubuntu@publicIPaddofinstance
+
+ssh -i ubuntu-key.pem ubuntu@publicIPaddofinstance
 
 2- Set up Jenkins Server :
 
@@ -26,16 +27,20 @@ apt update
 apt install default-jdk
 
 >> Install Jenkins :
+
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
 sudo apt-get update
+
 sudo apt-get install jenkins
 
 >> Start / Enable :
 
-
-  systemctl start jenkins
-  systemctl enable jenkins
+ systemctl start jenkins
+ 
+ systemctl enable jenkins
 
 ![Screenshot 2023-12-06 130925](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/0c22e8f0-3185-489c-aaa5-d3005d4b8847)
 
@@ -45,7 +50,9 @@ sudo apt-get install jenkins
 >> For security purposes , enable firewall ufw and allow port 8080(jenkins) and OpenSSH
 
 ufw enable
+
 ufw allow 8080
+
 ufw allow OpenSSH
 
 ![Screenshot 2023-12-06 131522](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/b91fcd28-732d-40d9-8ba2-f72d7faaa746)
