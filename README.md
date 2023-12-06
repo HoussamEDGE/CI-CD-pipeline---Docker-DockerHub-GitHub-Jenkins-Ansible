@@ -1,7 +1,7 @@
 # CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible
 
-##I- Set up environnement :
-###1 - Create 4 VM s (EC2 instances) in AWS :
+## I- Set up environnement :
+### 1 - Create 4 VM s (EC2 instances) in AWS :
 while creating the instances assign to them a key pair that you have created , in my case its ubuntu-key , its a private key generated with RSA algorithm which is an asymmetric cryptography algorithm since its based on 2 keys (private/public) used for encryption and decryption .
 
 ![Screenshot 2023-12-05 085322](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/3b79a9f5-9b79-4411-aca7-fc70e58d1b4b)
@@ -13,7 +13,7 @@ to connect using ssh with EC2 instance :
 
 ssh -i ubuntu-key.pem ubuntu@publicIPaddofinstance
 
-###2- Set up Jenkins Server :
+### 2- Set up Jenkins Server :
 
 We set hostname to Jenkins (just to know what server we are using when interacting in cmd /ssh) :
 ```
@@ -58,4 +58,4 @@ ufw allow OpenSSH
 ![Screenshot 2023-12-06 131703](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/d7babe06-c2d6-4937-9d61-328179449da9)
 
 
-###3- Set up Ansible Server :
+### 3- Set up Ansible Server :
