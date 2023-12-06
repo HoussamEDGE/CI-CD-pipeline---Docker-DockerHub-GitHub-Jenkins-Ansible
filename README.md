@@ -57,6 +57,11 @@ ufw allow OpenSSH
 
 ![Screenshot 2023-12-06 131703](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/d7babe06-c2d6-4937-9d61-328179449da9)
 
+Install Publish over SSH plugin in Jenkins
+
+![Screenshot 2023-12-06 231557](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/6bb9f3a4-222c-4c62-aef7-5f46c30945f0)
+
+
 ### 3- Set up Ansible Server :
 
 ```
@@ -113,7 +118,9 @@ systemctl enable docker
 
 In all 3 Servers configure permissions
 ```
+passwd root
 vi /etc/ssh/sshd_config
+systemctl restart sshd
 ```
 
 ![Screenshot 2023-12-06 164920](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/9cde44f0-5afe-4686-8ed3-07f6a8a8ee9e)
@@ -133,8 +140,34 @@ ssh-copy-id root@privateIPaddofDockerHostServer
 
 ## II- Create CI/CD pipeline :
 
+### 1- Add SSH servers to Jenkins:
 
+![Screenshot 2023-12-06 231814](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/6ce6be88-ee45-4bb4-b5e3-32cd56c9f236)
 
+![Screenshot 2023-12-06 231830](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/d11967dc-b1f6-4ec2-8b6a-251f5b259c6f)
 
+![Screenshot 2023-12-06 231854](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/5e15efc3-8887-4a46-8adc-a1697acac574)
 
+### 2- Create CI/CD Pipeline:
+
+![Screenshot 2023-12-06 232329](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/c1292780-4d4b-44da-b02e-7e039ebea417)
+
+### 3- Add Github repo to  Jenkins:
+
+![Screenshot 2023-12-06 232438](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/b9047438-34b3-4f0c-8d77-9648b911b6a2)
+
+### 4- Create a Webhook in your github :
+To trigger Jenkins if something is modified in the repo
+
+![Screenshot 2023-12-06 232829](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/08d573f5-9cb4-425b-b2eb-e97b6ccb25b8)
+
+![Screenshot 2023-12-06 232844](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/329e957a-c455-470e-8ccd-9ed309ad3f0e)
+
+### 5- Build Steps :
+
+![Screenshot 2023-12-06 233055](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/f4e514dc-3530-4045-b913-7b14ed2e7842)
+
+![Screenshot 2023-12-06 233115](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/addbf399-9683-46f1-ad35-2d56e95efc25)
+
+![Screenshot 2023-12-06 233141](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/a9c49dac-79bf-4462-8790-4ab1717c0071)
 
