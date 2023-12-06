@@ -57,5 +57,84 @@ ufw allow OpenSSH
 
 ![Screenshot 2023-12-06 131703](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/d7babe06-c2d6-4937-9d61-328179449da9)
 
-
 ### 3- Set up Ansible Server :
+
+```
+apt update
+```
+
+Install Ansible
+```
+apt-add-repository ppa:ansible/ansible
+apt update
+apt install ansible
+```
+
+Install Docker
+```
+apt install docker -y
+apt install docker.io -y
+```
+
+![Screenshot 2023-12-06 163304](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/e854494d-74d8-4b7e-ad7d-41c34e8e2d7e)
+
+Install Docker
+```
+apt install docker -y
+apt install docker.io -y
+systemctl enable docker
+```
+Add hosts to ansible
+```
+vi /etc/ansible/hosts
+```
+![Screenshot 2023-12-06 163906](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/f2d4e38c-16ff-45b8-af99-24d780c4609d)
+
+Write your Playbook
+```
+mkdir /sourcecode
+cd /sourcecode
+vi docker.yml
+```
+![Screenshot 2023-12-06 164323](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/ecbdf7aa-db2d-4f85-96ed-85b18fcd3e3e)
+
+### 4- Set up Docker Host Server :
+
+Install Docker
+```
+apt update
+apt install docker -y
+apt install docker.io -y
+systemctl enable docker
+```
+![Screenshot 2023-12-06 164530](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/d77279fc-fcc3-4ad7-b71c-2454e0d16e3f)
+
+### 5- SSH Configuration:
+
+In all 3 Servers configure permissions
+```
+vi /etc/ssh/sshd_config
+```
+
+![Screenshot 2023-12-06 164920](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/9cde44f0-5afe-4686-8ed3-07f6a8a8ee9e)
+
+![Screenshot 2023-12-06 164941](https://github.com/HoussamEDGE/CI-CD-pipeline---Docker-DockerHub-GitHub-Jenkins-Ansible/assets/99811097/4982df07-5323-4905-9eaa-28661bfde986)
+
+In Jenkins Server
+```
+ssh-keygen
+ssh-copy-id root@privateIPaddofAnsibleServer
+```
+In Ansibler Server
+```
+ssh-keygen
+ssh-copy-id root@privateIPaddofDockerHostServer
+```
+
+## II- Create CI/CD pipeline :
+
+
+
+
+
+
